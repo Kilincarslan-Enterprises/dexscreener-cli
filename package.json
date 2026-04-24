@@ -1,0 +1,22 @@
+{
+  "name": "@kilincarslan/dexscreener-cli",
+  "version": "1.0.0",
+  "description": "DexScreener CLI for querying token data",
+  "main": "lib/index.js",
+  "bin": {
+    "dexscreener": "bin/dexscreener.js"
+  },
+  "scripts": {
+    "start": "node lib/index.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": ["dexscreener", "crypto", "defi", "cli", "tokens"],
+  "author": "Kilincarslan Enterprises",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^14.0.3",
+    "cli-table3": "^0.6.5"
+  }
+}
