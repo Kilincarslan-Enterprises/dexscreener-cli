@@ -1,54 +1,116 @@
 # DexScreener CLI
 
-A command-line interface for querying token data from the DexScreener API.
+A comprehensive command-line interface for querying token data, pools, and market information from the DexScreener API. Built by Kilincarslan Enterprises for AI agents and traders.
 
 ## Installation
 
+### Global Install (Recommended)
 ```bash
-# Clone the repository
+npm install -g @kilincarslan/dexscreener-cli
+```
+
+### Local Development
+```bash
 git clone https://github.com/Kilincarslan-Enterprises/dexscreener-cli.git
 cd dexscreener-cli
-
-# Install dependencies
 npm install
-
-# Link the CLI globally
 npm link
 ```
 
-## Usage
+## Quick Start
 
-### Search for tokens
 ```bash
-dexscreener search <query>
+# Search for a token
 dexscreener search SOL
-dexscreener search "0x311935Cd80B76769bF2ecC9D8Ab7635b2139cf82"
-```
 
-### Get token details
-```bash
-dexscreener token <chain>_<address>
+# Get token details
 dexscreener token base_0x311935Cd80B76769bF2ecC9D8Ab7635b2139cf82
-dexscreener token solana_EpN7X2Kqcz5GdjECgqccvGhzuryLARKDqrkV6Ghpump
+
+# View trending pools
+dexscreener pools --format table
+
+# Check memecoin trends
+dexscreener metas
 ```
 
-### Get pair/pool details
+## Commands Reference
+
+### Token & Pair Data
+| Command | Description | Example |
+|---------|-------------|---------|
+| `search <query>` | Search tokens by symbol or address | `dexscreener search bitcoin` |
+| `token <chain>_<address>` | Get token details (price, mcap, liquidity) | `dexscreener token base_0x...` |
+| `pair <chain>_<address>` | Get specific pair/pool details | `dexscreener pair base_0x...` |
+| `token-pairs <chain>_<address>` | Get all pairs for a token | `dexscreener token-pairs solana_...` |
+
+### Market Discovery
+| Command | Description | Example |
+|---------|-------------|---------|
+| `pools` | Get latest trending pools | `dexscreener pools --limit 20` |
+| `profiles` | Get boosted token profiles | `dexscreener profiles --type top` |
+| `recent-updates` | Recently updated token profiles | `dexscreener recent-updates` |
+| `takeovers` | Latest community takeovers | `dexscreener takeovers` |
+| `ads` | Latest ads and promotions | `dexscreener ads` |
+
+### Trading & Transactions
+| Command | Description | Example |
+|---------|-------------|---------|
+| `orders <chain>_<address>` | Get buy/sell orders for token | `dexscreener orders base_0x...` |
+| `txs <chain>_<pair>` | Get pair transaction history | `dexscreener txs base_0x...` |
+
+### Memecoin Categories (Metas)
+| Command | Description | Example |
+|---------|-------------|---------|
+| `metas` | Trending memecoin categories | `dexscreener metas` |
+| `meta <slug>` | Specific category details | `dexscreener meta ai` |
+
+## Output Formats
+
+**JSON (default):**
 ```bash
-dexscreener pair <chain>_<pairAddress>
-dexscreener pair base_0xb30540172F1B37d1eE1d109e49F883E935E69219
+dexscreener search SOL
 ```
 
-### Get latest pools
+**Table (human-readable):**
 ```bash
-dexscreener pools
-dexscreener pools --limit 20
+dexscreener search SOL --format table
+dexscreener pools -f table
 ```
 
-### Get boosted token profiles
+## Supported Chains
+
+`solana`, `ethereum`, `base`, `bsc`, `arbitrum`, `polygon`, `avalanche`, `optimism`, `fantom`, `cronos`, `linea`, `mantle`, `mode`, `blast`, `pulsechain`, `sui`, `aptos`
+
+## API Coverage
+
+This CLI implements **all 13 public DexScreener API endpoints**:
+
+1. ✅ GET /latest/dex/search — `search`
+2. ✅ GET /tokens/v1/{chainId}/{tokenAddresses} — `token`
+3. ✅ GET /latest/dex/pairs/{chainId}/{pairId} — `pair`
+4. ✅ GET /token-pairs/v1/{chainId}/{tokenAddress} — `token-pairs`
+5. ✅ GET /token-profiles/latest/v1 — `profiles`
+6. ✅ GET /token-profiles/recent-updates/v1 — `recent-updates`
+7. ✅ GET /community-takeovers/latest/v1 — `takeovers`
+8. ✅ GET /ads/latest/v1 — `ads`
+9. ✅ GET /orders/v1/{chainId}/{tokenAddress} — `orders`
+10. ✅ GET /token-pairs/{chainId}/{pairAddress}/txs — `txs`
+11. ✅ GET /metas/trending/v1 — `metas`
+12. ✅ GET /metas/meta/v1/{slug} — `meta`
+13. ✅ Pool aggregation via pairs API — `pools`
+
+## Environment Variables
+
 ```bash
-dexscreener profiles
-dexscreener profiles --chain solana
+# Optional: Set default output format
+export DEXSCREENER_FORMAT=json
+
+# Optional: API rate limit handling (60 req/min)
 ```
+
+## For AI Agents
+
+This CLI is designed for programmatic use by AI agents. All commands return structured JSON suitable for automated parsing and decision-making. See [SKILL.md](./SKILL.md) for AI agent integration guide.
 
 ## Output Formats
 
