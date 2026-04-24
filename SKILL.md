@@ -12,7 +12,7 @@ Query token and market data from DexScreener API. This skill automatically insta
 The skill automatically installs `@kilincarslan/dexscreener-cli` if not found:
 
 ```bash
-which dexscreener || npm install -g @kilincarslan/dexscreener-cli
+which dexscreener || npm install -g @kilincarslan-enterprises/dexscreener-cli
 ```
 
 ## Usage Pattern
@@ -92,7 +92,7 @@ https://github.com/Kilincarslan-Enterprises/dexscreener-cli
 
 ## NPM Package
 
-https://www.npmjs.com/package/@kilincarslan/dexscreener-cli
+https://www.npmjs.com/package/@kilincarslan-enterprises/dexscreener-cli
 
 ## License
 

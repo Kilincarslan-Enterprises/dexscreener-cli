@@ -2,13 +2,13 @@
 
 Query token data, pools, and market info from DexScreener API. Free, open-source, and AI-friendly.
 
-[![npm version](https://badge.fury.io/js/@kilincarslan%2Fdexscreener-cli.svg)](https://www.npmjs.com/package/@kilincarslan/dexscreener-cli)
+[![npm version](https://badge.fury.io/js/@kilincarslan-enterprises%2Fdexscreener-cli.svg)](https://www.npmjs.com/package/@kilincarslan-enterprises/dexscreener-cli)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Install
 
 ```bash
-npm install -g @kilincarslan/dexscreener-cli
+npm install -g @kilincarslan-enterprises/dexscreener-cli
 ```
 
 ## Quick Start

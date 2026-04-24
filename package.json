@@ -1,5 +1,5 @@
 {
-  "name": "@kilincarslan/dexscreener-cli",
+  "name": "@kilincarslan-enterprises/dexscreener-cli",
   "version": "1.0.0",
   "description": "DexScreener CLI for querying token data",
   "main": "lib/index.js",
